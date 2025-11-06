@@ -26,13 +26,11 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.grey[50],
       body: StreamBuilder<QuerySnapshot>(
-          // stream: FirebaseFirestore.instance.collection("users").snapshots(),
           stream: firestore
               .collection('users')
               .doc(auth.currentUser
                   ?.uid) // Get the user document based on the current user
               .collection('posts')
-              //.orderBy('taskDate', descending: false) // The collection of posts
               .snapshots(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
@@ -60,7 +58,7 @@ class _HomePageState extends State<HomePage> {
                   bool done = post['done'];
 
                   DateTime dateTime =
-                      timestamp.toDate(); // Convert timestamp to DateTime
+                      timestamp.toDate(); 
 
                   //formatted time
                   String formattedTime = DateFormat('HH:mm').format(dateTime);
@@ -68,7 +66,6 @@ class _HomePageState extends State<HomePage> {
                   //formatted date
                   String formattedDate =
                       DateFormat('dd/MM/yy').format(dateTime);
-
                   ///for the taskDate
                   DateTime taskTime =
                       taskDate.toDate(); // Convert timestamp to DateTime
@@ -100,11 +97,6 @@ class _HomePageState extends State<HomePage> {
                           const EdgeInsets.only(left: 11.0, right: 11, top: 16),
                       child: Column(
                         children: [
-                          /* Text(
-                            "Today",
-                            style: TextStyle(
-                                fontSize: 17, fontWeight: FontWeight.bold),
-                          ),*/
                           Container(
                             height: height / 7,
                             decoration: BoxDecoration(
@@ -156,7 +148,7 @@ class _HomePageState extends State<HomePage> {
                                             width: width / 3,
                                             child: Text(
                                               title.length > 15
-                                                  ? '${title.substring(0, 12)}...' // Truncate text if longer than 12
+                                                  ? '${title.substring(0, 12)}...' 
                                                   : title,
                                               style: TextStyle(
                                                 fontSize:
@@ -164,7 +156,7 @@ class _HomePageState extends State<HomePage> {
                                                 fontWeight: FontWeight.bold,
                                               ),
                                               overflow: TextOverflow
-                                                  .ellipsis, // Ensure the text doesn't overflow
+                                                  .ellipsis,
                                             ),
                                           ),
                                           SizedBox(
@@ -251,10 +243,6 @@ class _HomePageState extends State<HomePage> {
                                                       vertical: 5),
                                                   child: Row(
                                                     children: [
-                                                      /* Icon(
-                                                        Icons.timer_outlined,
-                                                        color: Colors.white,
-                                                      ),*/
                                                       Row(
                                                         children: [
                                                           Text(
