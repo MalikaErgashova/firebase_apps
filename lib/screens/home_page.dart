@@ -338,12 +338,4 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-///WORK WITH THEM!!!
-///also add the tick button to set it done, and do it disposable to delete the task  //done
-///work with also error with entered image input //done
-///according to the date,order the tasks with today, will be in tomorrow, next month, or etc ///now
-///according to the time and date together set the alarm ,see it from whats up
-///also add favorites, personal, business and etc//not done
-///show the alarm time separately and set time separately, work with the null checking and the red lines when user enters invalid String input
-///work with edit page //done but have some errors
-///there was issue related to the mount, solve it/edit page
+
